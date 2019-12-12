@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  flask-app-server:
+    build:
+      context: flask_app
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./flask_app:/home/flask/flask_app
+
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
